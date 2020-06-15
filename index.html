@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>鍵盤糾察隊</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.min.js" ></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css" rel="stylesheet">
+<script src ="https://kit.fontawesome.com/a64b954922.js" crossorigin="anonymous"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src ="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<style>
+    body{
+        font-family: 微軟正黑體;
+        font-weight: bolder;
+    }
+    .card-text{
+        font-size: 20px;
+    }
+    .flexslider{
+        margin-top: 60px;
+    }
+    .nav-item{
+    text-align: right;
+    margin-left: 90px;
+    font-size: 20px;
+}
+.card{
+    margin-bottom: 20px;
+}
+.puzzle{
+ width: 15%;
+}
+.Hpuzzle{
+ width: 16.847%;
+}
+#Porange{
+    position: relative;
+    left:40%;
+    padding-top:15%; 
+    padding-bottom: 1%; 
+}
+#Pred{
+    position: relative;
+    padding-top:7.6%; 
+    left:11.8%;
+    padding-bottom: 1%; 
+}
+#Pblue{
+    position: relative;
+    right:16.52%;
+    padding-bottom:16%;
+}
+#Pgreen{
+    position: relative;
+    left:11.7%;
+    padding-bottom:9%;
+}
+#puzzleZone li{
+    font-size: 24px;
+}
+.contri .card{
+border: 0px;
+}
+.contri .card-body{
+border: 1px solid rgba(0,0,0,.125);
+border-radius: .25rem;
+}
+.owl-carousel .item{
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  pad: 2%;
+  font-size: 24px;
+  height: 600px;
+}
+.owl-carousel img{
+ padding: 2%;
+}
+.owl-carousel h2{
+  text-align: right;
+  padding-bottom: 1%;
+  padding-top: 2%;
+  padding-right: 2.5%;
+}
+.owl-carousel p{
+  text-align: center;
+  padding-right: 2%;
+  padding-bottom: 2%;
+}
+.top-link {
+  transition: all .25s ease-in-out;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+  
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	margin: 0 3em 3em 0;
+	border-radius: 50%;
+	padding: .25em;
+	width: 80px;
+	height: 80px;
+  background-color: #F8F8F8;
+}
+.top-link .show {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .top-link .hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+	svg {
+		fill: #000;
+		width: 24px;
+		height: 12px;
+	}
+
+  .top-link:hover {
+		background-color: #E8E8E8;
+  }
+		svg {
+			fill: #000000;
+		}
+    .screen-reader-text {
+	position: absolute;
+	clip-path: inset(50%);
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	word-wrap: normal !important;
+	clip: rect(1px, 1px, 1px, 1px);
+    }
+	.screen-reader-text:focus {
+		display: block;
+		top: 5px;
+		left: 5px;
+		z-index: 100000; 
+		clip-path: none;
+		background-color: #eee;
+		padding: 15px 23px 14px;
+		width: auto;
+		height: auto;
+		text-decoration: none;
+		line-height: normal;
+		color: #444;
+		font-size: 1em;
+		clip: auto !important;
+	}
+  #system p{
+    font-size:24px;
+}
+#system{
+  padding-bottom: 5%;
+}
+#footerBut{
+  background-color: white;
+   color: grey; 
+  font-weight: bolder;
+   padding-top: 7%;
+    padding-bottom: 7%;
+     border: 3px solid;
+      border-radius: 5rem;
+       width: 80%; 
+       text-align: center;
+       cursor: pointer;
+}
+#footerBut:hover{
+  background-color: #55b5c9;
+  color: white;
+-webkit-transition:all .3s ease-in-out;
+-moz-transition:all .3s ease-in-out;
+-o-transition:all .3s ease-in-out;
+-ms-transition:all .3s ease-in-out;
+}
+#RAT{
+	position:fixed;
+    z-index:90;
+    right:-2%;
+    top:150px;
+    width: 10%;
+  cursor: pointer;
+  display: none;
+  -moz-transform:rotate(-90deg);
+      -webkit-transform:rotate(-90deg);
+}
+#RAT img{
+  width: 100%;
+}
+#CAT{
+	position:fixed;
+    z-index:90;
+    left:-2%;
+    top:500px;
+    width: 10%;
+  cursor: pointer;
+  display: none;
+     transform:rotate(90deg) scaleX(-1);
+}
+#CAT img{
+  width: 100%;
+}
+</style>
+<body>
+  <a ID="CAT"><img src="images/CAT.png"></a>
+  <a ID="RAT"><img src="images/RAT.png"></a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+        <div class="container ">
+        <img width="15%" src="images/logo.png">
+        <div  class="collapse navbar-collapse"  id="navbarNavDropdown">
+        <ul  class="nav navbar-nav ml-auto">
+            <li class="dropdown nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  專題簡介
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item starts"href="#" >緣起</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item features" href="#">特色</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item contributes" href="#">貢獻</a>
+                </div>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link members" href="#">組員資料</a>
+            </li>
+            <li  class="nav-item">
+              <a class="nav-link systems" href="#">系統畫面與展示</a>
+            </li>
+
+        </ul>
+        </div >
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      </nav>
+      <a class="top-link hide" href="" id="js-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+        <span class="screen-reader-text">Back to top</span>
+      </a>
+      <div class="container">
+      <div class="flexslider">
+        <ul class="slides">
+          <li>
+            <img src="images/1-1.png" />
+          </li>
+          <li>
+            <img src="images/1-2.jpg" />
+          </li> <li>
+            <img src="images/1-3.jpg" />
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+<div class="card col-12">
+    <div class="card-body">
+      <h1 class="card-title body_starts">緣起</h1>
+      <p class="card-text">網路，使人們獲取資訊的渠道由傳統單向而被動的報章雜誌、傳播媒體等，轉變為互動性十足的網路社群，同時網路上的言論也深深影響著我們的思考、觀點與決策。然而，網路上有讚美、有謾罵、有護航、也有抹黑，伴隨著這些五花八門的輿論，似乎也有著「網軍」、「1450」、「五毛」等特定人士操作「帶風向」的痕跡，「網路輿論」更成為企業品牌、政府機關甚至政治人物所關心的重要議題。
+        因此，本專題「鍵盤糾察隊」希望透過大數據與人工智慧技術，解析網路社群上輿論的形成模式，進而研究這種遊走於灰色地帶的「風向操作」是如何影響大眾的視聽。在維護言論自由的前提下，這種「人工輿論」應該被規範嗎？而一般民眾又該如何分辨？
+    </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="card col-12">
+        <div class="card-body">
+          <h1  class="card-title body_features">特色</h1>
+          <ul class="card-text">
+             <div id = "puzzleZone"> 
+                 <div class="row">
+                 <H2 data-aos="fade-right" style=" text-align: center; background-color:rgb(46,117,182); color:white" class="col-3">數據資訊化</H2 data-aos="fade-right">
+                 <H2 data-aos="fade-left" style="text-align: center; background-color:rgb(84,130,53); color:white" class="col-3 offset-4">介面直覺化</H2>
+                </div>
+                <div   class="row">
+                 <ul class="col-5"><li data-aos="fade-right">大數據與人工智慧技術，解析網路社群上輿論操作的形成模式。</li></ul>               
+                 <ul class="col-5 offset-2"><li data-aos="fade-left">直觀式頁面設計讓使用者更易上手。</li> <li data-aos="fade-left">同時視覺化圖表讓資訊一目瞭然。 </li>                   
+                </ul>
+                 </div>
+                 
+            <img data-aos="fade-up-left" class="Hpuzzle" id ="Porange" src="images/橘.png" />
+            <img data-aos="fade-up-right" class="puzzle" id ="Pred" src="images/紅.png" />
+            <img data-aos="fade-down-left" class="puzzle" id ="Pgreen" src="images/綠.png" />
+            <img data-aos="fade-down-right" class="Hpuzzle" id ="Pblue" src="images/藍.png" />
+            <div  class="row">
+                <H2 data-aos="fade-right" style="text-align: center; background-color:rgb(182,40,16); color:white" class="col-3">使用便捷化</H2>
+                <H2 data-aos="fade-left" style="text-align: center; background-color:rgb(237,125,49); color:white" class="col-3 offset-4">網路透明化</H2>
+               </div>
+               <div  class="row">
+                <ul class="col-4"><li data-aos="fade-right">瀏覽器輔助插件解決畫面切換查詢的困擾。</li> <li data-aos="fade-right">即時警示附帶報告，隨時掌握突發狀況。 </li>                 
+                </ul>
+               <ul class="col-5 offset-3"><li data-aos="fade-left">過濾器讓使用者降低受到輿論操作影響的機會。</li> <li data-aos="fade-left">群眾共糾機制，一同抵制輿論操作。</li>
+                                    
+               </ul>
+                </div>
+             </div>
+        </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card col-12">
+        <div class="card-body">
+          <h1 style="text-align: center; font-size: 50px;" class="card-title body_contributes">貢獻</h1>
+          <p class="card-text ">
+            <div class="row contri">
+              <div data-aos="flip-left" class="card col-6">
+                <div class="card-body">
+                  <h1 class="card-title"><i style="color: #55b5c9;" class="fas fa-square-full"></i> 提供帳號判斷</h1>
+                  <p class="card-text">
+                    建立一個網友行為分析系統，提供大眾一個快速判斷帳號是否可能為「風向操作者」的方式，避免大眾受到欺騙或誤導。
+                  </p>
+                </div>
+              </div>
+              <div data-aos="flip-right" data-aos-delay="100" class="card col-6">
+                <div class="card-body">
+                  <h1 class="card-title"><i style="color: #55b5c9;" class="fas fa-square-full"></i> 屏蔽特定言論</h1>
+                  <p class="card-text">
+                    網友言論過濾器降低「風向操作」的影響力，呈現社群真實的聲音。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </p>
+          <p class="card-text ">
+            <div class="row contri">
+              <div data-aos="flip-left" data-aos-delay="200" class="card col-6">
+                <div class="card-body">
+                  <h1 class="card-title"><i style="color: #55b5c9;" class="fas fa-square-full"></i> 定期分析報告</h1>
+                  <p class="card-text">
+                    研究分析網路使用者行為，探討PTT社群生態樣貌，同時找出流行議題與趨勢，並產出定期成果報告至PTT(以發文方式)，以提供大眾作為輔助參考。
+                  </p>
+                </div>
+              </div>
+              <div data-aos="flip-right" data-aos-delay="300" class="card col-sm-6">
+                <div class="card-body">
+                  <h1 class="card-title"><i style="color: #55b5c9;" class="fas fa-square-full"></i> 提供業主策略</h1>
+                  <p class="card-text">
+                    客製報表與即時警報系統協助業主更好的制定行銷策略。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>  
+    </div>
+    
+    <h1 class="col-12 body_members" style="text-align: center;">組員資料(左右滑動)</h1>
+    <div data-aos="zoom-in" class="carousel-wrap" >
+      <div class="owl-carousel">
+        <div class="item">
+          <img style="width: 40%;   float: left;" src="images/YO.jpg">
+          <h2 >10544146 王又諄 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;資管四甲</h2>
+          <p>心得:這個專題，一言難盡，我雖然是組長，但我自認可能不是成功的領導者，我很懶惰，有很多事情都是組員在提醒，甚至很多事情我都幫不上忙，或許我一開始主要是撰寫程式，但在後期多半是成為組員間的橋梁，
+            因為組員們的能力我認為都比我優秀，當大家遇到需要決定的時候，我去承擔，即使有時候結果甚差，我也願意去解決問題，而真的很感謝老師與學長姐的幫忙，沒有他們，就沒有今天的我們，而且我相信，我們做這個專題在這個社會上是相當有意義的，
+            我們也期望我們團隊能夠繼續走下去，完成我們想達到的成果，因為現代資訊進步神速，同時也造就了我們的機會。
+            最後，我也謝謝系上提供的資源讓我們能夠去發揮!</p>
+        </div>
+        <div class="item">
+          <img style="width: 40%;  float: left;" src="images/YEN.jpg">
+          <h2>10535123 程嬿伃 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;資管四甲</h2>
+          <p>心得:在專題中我擔任的角色是前端網頁設計，簡報和海報製作，和美術相關的工作都是由我來處理，一開始沒有什麼頭緒，最後選擇了貓和老鼠作為專題的兩位吉祥角色，詼諧的點陣風格是一大特色，自古以來印象都是貓抓老鼠吃，但我們只是以貓咪用手電筒的光去照出老鼠的位置，並不對老鼠制裁，是因為我們期許自己能像那道光一樣使大眾看見網路社群的面貌。
+
+            一路上獲得了老師許多的幫助，常常以為網軍與我們距離很遙遠，但在做這個專題時才發現原來網路風向對我們的影響這麼的大，胡亂聽信網路風評就購買的商品還堆在房間內，自從發現自己可能也在無形之中被影響了，也開始對網路的評論有猜疑不再盲目跟從，而這也是我們小組的願景，既然無法使他人停止帶起網路風向，至少我們能透過各種數據的顯示和提醒，來提高大眾的警覺性和判斷力，來降低網路風向的影響。</p>
+        </div>
+        <div class="item">
+          <img style="width: 40%;  float: left;" src="images/WEI.jpg">
+          <h2>10444113 王偉學 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;資管四甲</h2>
+          <p>心得:做專題的這一年對我來說就像是搭雲霄飛車，忽高忽低的。從當時初審的失利，到全國大賽幸運獲獎和這次複審金家大勝利，一年之間我們都學了許多，也看到了自己沒發現的潛力。謝謝老師願意給我資源和方向，指引我們走過專題的這段時間；謝謝組員們願意為這個專題付出時間、心力好讓我們得到我們目前所擁有的一切。
+</p>
+          </div>
+          <div class="item">
+            <img style="width: 40%;  float: left;" src="images/LI.jpg">
+            <h2>10325203 林俐君 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;資管四甲</h2>
+            <p>在這次的專題中，我是負責書面製作與報告者，在初審那時，我這兩項的能力並不是非常的好，只會看著空白的word檔乾瞪眼，腦袋完全一片空白。經過快一年的訓練，中間曾經因壓力大感到不知所措時哭過好幾次，也曾經幾度想放棄，可是在組員、學長姊們與老師的支持與鼓勵下，最終撐了過來。
+              在全國競賽得獎時，台上公布我們是第一名時，我的腦袋完全沒反應過來，只覺得好不真實，腦中不停撥放"是真的嗎？"的那種感覺，這個狀態一直持續到我們拿著得獎證明回到位子上，看著那個證明，才開始有了"我們真的做到了！"的感覺，然後我很丟臉的又哭了(現在覺得很不好意思)。在之後的兩個月，我們也為了專題複審持續努力，而複審也不負期盼，同樣有亮眼的成果。
+              未來，我們有打算將這個專題繼續完善下去，而我，也同樣會不斷的精進自己的各種能力。 </p>
+            </div>
+  
+
+      </div>
+    
+    </div>
+    <div  id="system">
+    <div style="padding-bottom:3%;" class="row">
+      <img data-aos="fade-right" style="float: left; width: 40%;" src="images/SYS1.png">   
+      <div data-aos="fade-left" style="width:57%; padding-left:3%;">
+        <h2 style="font-weight:bolder; text-align: center;">系統畫面:共糾平台</h2>
+        <p>「群眾共糾」平台的特點在於直觀式的頁面呈現，將系統分析歸納好的各種資訊以直覺式圖表呈現給大眾，作為異常帳號輔助判斷的參考。</p>
+     </div>
+    </div>
+    <br>
+    <div style="padding-bottom:3%;" class="row">     
+      <div data-aos="fade-right" style="width:57%; padding-right:3%;">
+        <h2 style="font-weight:bolder ;text-align: center;">系統畫面:言論過濾器</h2>
+        <p >它是一個自動化的插件，提供了兩個功能，「資訊顯示」功能和「一鍵屏蔽」功能。
+          資訊顯示功能：將游標移至ID帳號上，即可直接顯示其帳號相關資訊。
+          一鍵屏蔽功能：若帳號死忠度數值高於一定標準時，其言論將被遮罩，避免受其言論影響。</p >
+     </div>
+      <img data-aos="fade-left" style="float: right; width: 40%;" src="images/SYS2.png">    
+    </div>
+    <br>
+    <div style="padding-bottom:3%;" class="row">
+      <img data-aos="fade-right" style="float: left; width: 40%;" src="images/SYS3.png">
+      <div data-aos="fade-left" style="width:57%; padding-left:3%;">
+      <h2 style="font-weight:bolder; text-align: center;">系統畫面:客製報表與即時警報</h2>
+      <p>企業、品牌、網路潮流、政治團體等相關議題，皆可透過本功能提供定期客製化分析報告，抑或是當偵測到PTT上有受到操作的議題，即時警報器會將警示訊息傳給關注此議題之客戶，並附上警示報告連結，協助客戶及時制定應對策略。</p>
+   </div>
+    </div>
+    </div>
+
+
+</div>
+<div style="background-color:#ededed; margin-bottom: 2%;">
+  <div style="padding-top: 3%; padding-bottom: 8%;" class="container">
+    <div class="row">
+      <div style="text-align: center; margin-top: 5%;" class="col-7">
+        <h2 style="font-weight: bolder;">開始使用鍵盤糾察隊</h2>
+        <img src="images/RA2.png">
+      </div>
+      <div style="text-align: right;" class="col-4 offset-1">
+        <img  src="images/RAA2.png">
+        <div style="text-align: center;">
+        <h4 id="footerBut">START!</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    slideshow: true,                
+  });
+  $('.owl-carousel').owlCarousel({
+  loop: true,
+  // autoplay: true,
+  // autoplayHoverPause: true,
+  items:1
+})
+
+const scrollToTopButton = document.getElementById('js-top');
+
+const scrollFunc = () => {
+  let y = window.scrollY;
+
+  if (y > 0) {
+    scrollToTopButton.className = "top-link show";
+  } else {
+    scrollToTopButton.className = "top-link hide";
+  }
+};
+
+window.addEventListener("scroll", scrollFunc);
+
+const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 10);
+  }
+};
+
+scrollToTopButton.onclick = function(e) {
+  e.preventDefault();
+  scrollToTop();
+}
+
+$(".starts").click(function(){
+  $('html,body').animate({scrollTop:$(".body_starts").offset().top}, 800);
+});
+$(".features").click(function(){
+  $('html,body').animate({scrollTop:$(".body_features").offset().top-100}, 800);
+});
+$(".contributes").click(function(){
+  $('html,body').animate({scrollTop:$(".body_contributes").offset().top-100}, 800);
+});
+$(".members").click(function(){
+  $('html,body').animate({scrollTop:$(".body_members").offset().top-100}, 800);
+});
+$(".systems").click(function(){
+  $('html,body').animate({scrollTop:$("#system").offset().top-100}, 800);
+});
+
+AOS.init({
+      offset: 600,
+      easing: 'ease-in-out-back',
+      duration: 1000,
+  });
+
+   $(window).scroll(function() {
+       if ( $(this).scrollTop() > 100){
+           $('#RAT').fadeIn();
+       } else {
+           $('#RAT').fadeOut();
+       }
+   });
+   $(window).scroll(function() {
+       if ( $(this).scrollTop() > 100){
+           $('#CAT').fadeIn();
+       } else {
+           $('#CAT').fadeOut();
+       }
+   });
+
+</script>
+</html>
